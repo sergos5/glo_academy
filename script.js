@@ -17,10 +17,14 @@ const isNumber = function (num) {
 
 const asking = function(){
     title = prompt('Как называется Ваш проект?', 'Калькулятор верстки');
+    while (!title) {
+        title = prompt('Введите название проекта', 'Калькулятор верстки');
+    }
     screens = prompt('Какие типы экранов нужно разработать?', 'Основной, адаптивный');
     do {
-        screenPrice = +prompt('Сколько будет стоить данная работа? (введите числовое значение)', 15000);
+        screenPrice = prompt('Сколько будет стоить данная работа? (введите числовое значение)', 15000);
     }  while (!isNumber(screenPrice));
+    screenPrice = +screenPrice;
     adaptive = confirm('Нужен ли адаптив на сайте?');
 };
 
@@ -32,11 +36,11 @@ const getAllServicePrices = function() {
         } else if (i===1) {
             service2 = prompt('Какой еще дополнительный тип услуги нужен?', 'Слайдер');
         }
-        let servisPrice = +prompt('Сколько это будет стоить?');
+        let servisPrice = prompt('Сколько это будет стоить?');
         while (!isNumber(servisPrice)) {
-            servisPrice = +prompt('Сколько это будет стоить? (введите числовое значение)');
+            servisPrice = prompt('Сколько это будет стоить? (введите числовое значение)');
         }
-        sum += servisPrice;
+        sum += +servisPrice;        
     }
     return sum;
 };
@@ -79,7 +83,6 @@ title = getTitle();
 showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
-
 
 
 console.log("Типы экранов для разработки - " + screens);
