@@ -79,11 +79,6 @@ title = getTitle();
 showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
-showTypeOf(screens);
-showTypeOf(screenPrice);
-showTypeOf(allServicePrices);
-showTypeOf(fullPrice);
-showTypeOf(servicePercentPrice);
 
 
 
