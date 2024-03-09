@@ -105,6 +105,3 @@ const appData = {
 appData.start();
 
 
-let aaa = 'f';
-
-console.log(isFinite(aaa));
