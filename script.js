@@ -17,12 +17,15 @@ const appData = {
 
     asking: function(){
         appData.title = prompt('Как называется Ваш проект?', 'Калькулятор верстки');
-        while (!appData.title) {
+        while (!appData.title || isFinite(appData.title)) {
             appData.title = prompt('Введите название проекта', 'Калькулятор верстки');
         }
 
         for (let i=0; i<2; i++) {
             let name = prompt('Какие типы экранов нужно разработать?', 'Основной, адаптивный');
+            while (isFinite(name)) {
+                name = prompt('Некорректные данные! Введите типы экранов', 'Основной, адаптивный');
+            }
             let price = 0;
             do {
                 price = prompt('Сколько будет стоить данная работа? (введите числовое значение)', 20000);
@@ -31,9 +34,11 @@ const appData = {
         }
                 
         for (let i=0; i<2; i++){
-            let name = prompt('Какой дополнительный тип услуги нужен?', 'Отправка форм, метрика');
+            let name = prompt('Какой дополнительный тип услуги нужен?', 'Отправка форм, метрика');            
+            while (isFinite(name)) {
+                name = prompt('Некорректные данные! Введите типы услуги', 'Отправка форм, метрика');
+            }
             let price = 0;
-
             do {
                 price = prompt('Сколько это будет стоить?');
             } while (!appData.isNumber(price));
@@ -95,8 +100,11 @@ const appData = {
         appData.getTitle();
         appData.logger(); 
     }
-
 };
 
 appData.start();
 
+
+let aaa = 'f';
+
+console.log(isFinite(aaa));
