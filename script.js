@@ -108,27 +108,3 @@ const appData = {
 
 appData.start();
 
-
-
-
-
-
-
-let aaa = [
-    {id:0, name:'ivan', age:19},
-    {id:1, name:'anna', age:17},
-    {id:2, name:'gleb', age:21},
-    {id:3, name:'alex', age:23},
-    {id:4, name:'olya', age:18},
-];
-
-let bbb = aaa.reduce(function(sum,item,index) {
-    return sum += item.age
-}, 0);
-
-
-///console.log(bbb);
-
-
-
-
