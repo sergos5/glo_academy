@@ -42,15 +42,19 @@ const appData = {
             do {
                 price = prompt('Сколько это будет стоить?');
             } while (!appData.isNumber(price));
-            appData.services[name] = +price;
+            appData.services[i+1+'. '+name] = +price;
         }
         appData.adaptive = confirm('Нужен ли адаптив на сайте?');
     },
 
     addPrices: function() {
-        for (let screen of appData.screens) {
+        /* for (let screen of appData.screens) {
             appData.screenPrice += +screen.price;
-        }
+        } */
+        appData.screenPrice = appData.screens.reduce(function(sum, item){
+            return sum += +item.price;
+        }, 0);
+                
         for (let key in appData.services) {
             appData.allServicePrices += appData.services[key];
         }
@@ -105,6 +109,26 @@ const appData = {
 appData.start();
 
 
-let aaa = 'f';
 
-console.log(isFinite(aaa));
+
+
+
+
+let aaa = [
+    {id:0, name:'ivan', age:19},
+    {id:1, name:'anna', age:17},
+    {id:2, name:'gleb', age:21},
+    {id:3, name:'alex', age:23},
+    {id:4, name:'olya', age:18},
+];
+
+let bbb = aaa.reduce(function(sum,item,index) {
+    return sum += item.age
+}, 0);
+
+
+///console.log(bbb);
+
+
+
+
