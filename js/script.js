@@ -9,10 +9,10 @@ const rollbackRange = document.querySelector('.rollback [type="range"]');
 const rollbackRangeValue = document.querySelector('.rollback .range-value');
 const totalInput = [];
 
-let searchingByClassName = function(arr, clNam) {
-    let coll = document.getElementsByClassName(clNam);
-    for (let i=0; i<coll.length; i++) {
-        arr.push(coll[i]);
+let searchingByClassName = function(elem, clNam) {
+    let collection = document.getElementsByClassName(clNam);
+    for (let i=0; i<collection.length; i++) {
+        elem.push(collection[i]);
     }    
 };
 searchingByClassName(totalInput, 'total-input');
