@@ -17,13 +17,7 @@ const totalCountOther = document.getElementsByClassName('total-input')[2];
 const totalFullCount = document.getElementsByClassName('total-input')[3];
 const totalCountRollback = document.getElementsByClassName('total-input')[4];
 
-
-
 let screen = document.querySelectorAll('.screen');
-
-
-
-
 
 const appData = {
     title: '', 
@@ -134,12 +128,3 @@ const appData = {
 //appData.start();
 
 
-console.log(startBtn);
-console.log(resetBtn);
-
-
-console.log(total);
-console.log(totalCount);
-console.log(totalCountOther);
-console.log(totalFullCount);
-console.log(totalCountRollback);
