@@ -1,23 +1,27 @@
 'use strict';
 
 const title = document.getElementsByTagName('h1')[0];
-const handlerBtn = document.getElementsByClassName('handler_btn');
+
+const startBtn = document.getElementsByClassName('handler_btn')[0];
+const resetBtn = document.getElementsByClassName('handler_btn')[1];
+
 const screenBtn = document.querySelector('.screen-btn');
 const otherItemsPercent = document.querySelectorAll('.other-items.percent');
 const otherItemsNumder = document.querySelectorAll('.other-items.number');
 const rollbackRange = document.querySelector('.rollback [type="range"]');
 const rollbackRangeValue = document.querySelector('.rollback .range-value');
-const totalInput = [];
 
-let searchingByClassName = function(elem, clNam) {
-    let collection = document.getElementsByClassName(clNam);
-    for (let i=0; i<collection.length; i++) {
-        elem.push(collection[i]);
-    }    
-};
-searchingByClassName(totalInput, 'total-input');
+const total = document.getElementsByClassName('total-input')[0];
+const totalCount = document.getElementsByClassName('total-input')[1];
+const totalCountOther = document.getElementsByClassName('total-input')[2];
+const totalFullCount = document.getElementsByClassName('total-input')[3];
+const totalCountRollback = document.getElementsByClassName('total-input')[4];
+
+
 
 let screen = document.querySelectorAll('.screen');
+
+
 
 
 
@@ -129,12 +133,13 @@ const appData = {
 
 //appData.start();
 
-console.log(title);
-console.log(handlerBtn);
-console.log(screenBtn);
-console.log(otherItemsPercent);
-console.log(otherItemsNumder);
-console.log(rollbackRange);
-console.log(rollbackRangeValue);
-console.dir(totalInput);
-console.log(screen);
+
+console.log(startBtn);
+console.log(resetBtn);
+
+
+console.log(total);
+console.log(totalCount);
+console.log(totalCountOther);
+console.log(totalFullCount);
+console.log(totalCountRollback);
