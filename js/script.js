@@ -52,9 +52,7 @@ const appData = {
         appData.showResult();
         console.log(appData);
       } 
-        appData.clearData();   
-        /* appData.getServicePercentPrices();
-        appData.logger(); */ 
+        appData.clearData();  
     },
 
     checkEmptyScreens:  function(){
@@ -71,8 +69,7 @@ const appData = {
         appData.servicePricesPercent = 0;
         appData.servicePricesNumber = 0;  
         appData.servicesPercent = {};
-        appData.servicesNumber = {}  
-
+        appData.servicesNumber = {};  
     },
 
     showResult: function() {
@@ -95,9 +92,6 @@ const appData = {
                 price: +select.value * +input.value});
             appData.count += +input.value;     
         });
-
-
-
     },
 
     addScreenBlock: function(){      
@@ -135,28 +129,15 @@ const appData = {
             appData.servicePricesPercent += appData.screenPrice*(appData.servicesPercent[key]/100);
         }
         appData.fullPrice = +appData.screenPrice + appData.servicePricesNumber + appData.servicePricesPercent;
-        appData.servicePercentPrice =  appData.fullPrice - appData.fullPrice * (appData.roolback/100);
-
-        //appData.count
-        
-        
+        appData.servicePercentPrice =  appData.fullPrice - appData.fullPrice * (appData.roolback/100);  
     },   
 
     getRollback: function() {
         appData.roolback = +rollbackRange.value;
-        rollbackRangeValue.textContent = rollbackRange.value+'%';
-    },
-
-    logger: function () {
-        /* for (let key in appData) {
-            console.log(appData[key]);
-        } */
-        console.log(appData.title);
-        console.log(appData.screens);
-        console.log(appData.screenPrice);
-        console.log(appData.fullPrice);
-        console.log(appData.servicePercentPrice);
-        console.log(appData.services);
+        rollbackRangeValue.textContent = rollbackRange.value+'%'; 
+        
+        appData.servicePercentPrice =  appData.fullPrice - appData.fullPrice * (appData.roolback/100);
+        totalCountRollback.value = appData.servicePercentPrice; 
     }    
 };
 
