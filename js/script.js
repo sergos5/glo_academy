@@ -54,26 +54,17 @@ const appData = {
             appData.blockInput(true);            
             startBtn.style.display = "none";
             resetBtn.style.display = "block";  
-            //console.log(appData);
+            console.log(appData);
         } 
         appData.clearData();   
     },
 
-    reset: function () {       
-        appData.blockInput(false);
-        screens.forEach((item,index)=>{                       
-            if (index > 0) item.remove();
-            item.querySelector('select').value ='';
-            item.querySelector('input').value =0;            
-        });    
-        otherItemsPercent.forEach((item)=>{
-            item.querySelector('.custom-checkbox').checked=false;
-        })
-        otherItemsNumder.forEach((item)=>{
-            item.querySelector('.custom-checkbox').checked=false;
-        })
+    reset: function () {   
         rollbackRange.value = 0;
         appData.getRollback();
+        appData.blockInput(false);
+        appData.clearScreenBlock();  
+        appData.clearServicesCheckbox(); 
         appData.clearData();
         appData.addPrices();
         appData.showResult(); 
@@ -144,7 +135,7 @@ const appData = {
             }            
         });       
     },
-
+  
     addPrices: function (){
         this.screenPrice = this.screens.reduce((sum, item)=>{
             return sum += +item.price;
@@ -174,6 +165,22 @@ const appData = {
         });
     },
 
+    clearScreenBlock: function() {
+        screens.forEach((item,index)=>{                       
+            if (index > 0) item.remove();
+            item.querySelector('select').value ='';
+            item.querySelector('input').value =0;            
+        });  
+    },
+    
+    clearServicesCheckbox: function() {
+        otherItemsPercent.forEach((item)=>{
+            item.querySelector('.custom-checkbox').checked=false;
+        });
+        otherItemsNumder.forEach((item)=>{
+            item.querySelector('.custom-checkbox').checked=false;
+        });
+    }
 
 
 
