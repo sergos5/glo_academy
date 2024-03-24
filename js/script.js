@@ -37,7 +37,7 @@ const appData = {
         appData.addTitle();
         startBtn.addEventListener('click', appData.start);
         buttonPlus.addEventListener('click', appData.addScreenBlock); 
-        rollbackRange.addEventListener('change', appData.getRollback);   
+        rollbackRange.addEventListener('input', appData.getRollback);   
     },
 
     addTitle: function(){
@@ -142,5 +142,4 @@ const appData = {
 };
 
 appData.init();
-
 
