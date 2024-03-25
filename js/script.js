@@ -56,21 +56,21 @@ const appData = {
             resetBtn.style.display = "block";  
             console.log(appData);
         } 
-        appData.clearData();   
+        appData.clearData();           
     },
 
     reset: function () {   
         rollbackRange.value = 0;
         appData.getRollback();
-        appData.blockInput(false);
-        appData.clearScreenBlock();  
+        appData.clearScreenBlock(); 
+        appData.blockInput(false);         
         appData.clearServicesCheckbox(); 
         appData.clearData();
         appData.addPrices();
         appData.showResult(); 
         startBtn.style.display = "block";
         resetBtn.style.display = "none";
-        console.log(appData);
+        console.log(appData);          
     },
 
     checkEmptyScreens: function () {       
@@ -104,17 +104,17 @@ const appData = {
             const select = screen.querySelector('select');
             const input = screen.querySelector('input');
             const selectName = select.options[select.selectedIndex].textContent;
-            appData.screens.push({
+            this.screens.push({
                 id: index, 
                 name:selectName, 
                 price: +select.value * +input.value});
-            appData.count += +input.value; 
-        });
+            this.count += +input.value;            
+        });        
     },
   
     addScreenBlock: function () {      
         const cloneScreen = screens[0].cloneNode(true);
-        screens[screens.length-1].after(cloneScreen);
+        screens[screens.length-1].after(cloneScreen);        
     },
 
     addServices: function () {        
@@ -150,12 +150,12 @@ const appData = {
         this.servicePercentPrice =  this.fullPrice - this.fullPrice * (this.roolback/100);  
     },   
 
-    getRollback: function() {        
+    getRollback: function() {                
         appData.roolback = +rollbackRange.value;
         rollbackRangeValue.textContent = rollbackRange.value+'%'; 
         
         appData.servicePercentPrice =  appData.fullPrice - appData.fullPrice * (appData.roolback/100);
-        totalCountRollback.value = appData.servicePercentPrice;         
+        totalCountRollback.value = appData.servicePercentPrice;   
     },   
     
     blockInput: function(bool) {
@@ -163,14 +163,16 @@ const appData = {
             item.querySelector('select').disabled = bool;
             item.querySelector('input').disabled = bool;            
         });
+        buttonPlus.disabled = bool;
     },
 
-    clearScreenBlock: function() {
+    clearScreenBlock: function() {        
         screens.forEach((item,index)=>{                       
             if (index > 0) item.remove();
-            item.querySelector('select').value ='';
-            item.querySelector('input').value =0;            
-        });  
+            item.querySelector('select').value = '';
+            item.querySelector('input').value = '';                                   
+        });
+        screens = document.querySelectorAll('.screen');        
     },
     
     clearServicesCheckbox: function() {
@@ -181,15 +183,6 @@ const appData = {
             item.querySelector('.custom-checkbox').checked=false;
         });
     }
-
-
-
-
-
-
 };
 
 appData.init();
-
-
-
