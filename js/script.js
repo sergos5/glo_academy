@@ -35,39 +35,40 @@ const appData = {
 
     init: function() {       
         this.addTitle();
-        startBtn.addEventListener('click', appData.start);
-        buttonPlus.addEventListener('click', appData.addScreenBlock); 
-        rollbackRange.addEventListener('input', appData.getRollback);   
-        resetBtn.addEventListener('click', appData.reset);
+        startBtn.addEventListener('click', this.start.bind(appData));
+        buttonPlus.addEventListener('click', this.addScreenBlock); 
+        rollbackRange.addEventListener('input', this.getRollback.bind(appData));   
+        resetBtn.addEventListener('click', this.reset.bind(appData));
     },
 
     addTitle: function () {
         document.title = title.textContent;
     },
 
-    start: function () {                
-        appData.addScreens();
-        if (appData.checkEmptyScreens()) {        
-            appData.addServices();        
-            appData.addPrices();      
-            appData.showResult();   
-            appData.blockInput(true);            
+    start: function () {  
+        this.addScreens();
+        if (this.checkEmptyScreens()) {        
+            this.addServices();        
+            this.addPrices();      
+            this.showResult();   
+            this.blockInput(true);            
             startBtn.style.display = "none";
             resetBtn.style.display = "block";  
             console.log(appData);
         } 
-        appData.clearData();           
+        this.clearData();    
+               
     },
 
     reset: function () {   
         rollbackRange.value = 0;
-        appData.getRollback();
-        appData.clearScreenBlock(); 
-        appData.blockInput(false);         
-        appData.clearServicesCheckbox(); 
-        appData.clearData();
-        appData.addPrices();
-        appData.showResult(); 
+        this.getRollback();
+        this.clearScreenBlock(); 
+        this.blockInput(false);         
+        this.clearServicesCheckbox(); 
+        this.clearData();
+        this.addPrices();
+        this.showResult(); 
         startBtn.style.display = "block";
         resetBtn.style.display = "none";
         console.log(appData);          
@@ -151,11 +152,11 @@ const appData = {
     },   
 
     getRollback: function() {                
-        appData.roolback = +rollbackRange.value;
+        this.roolback = +rollbackRange.value;
         rollbackRangeValue.textContent = rollbackRange.value+'%'; 
         
-        appData.servicePercentPrice =  appData.fullPrice - appData.fullPrice * (appData.roolback/100);
-        totalCountRollback.value = appData.servicePercentPrice;   
+        this.servicePercentPrice =  this.fullPrice - this.fullPrice * (this.roolback/100);
+        totalCountRollback.value = this.servicePercentPrice;   
     },   
     
     blockInput: function(bool) {
