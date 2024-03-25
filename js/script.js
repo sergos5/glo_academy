@@ -20,7 +20,8 @@ const totalCountRollback = document.getElementsByClassName('total-input')[4];
 let screens = document.querySelectorAll('.screen');
 
 const cmsCheckbox = document.getElementById('cms-open');
-const cmsVar = document.querySelector('.hidden-cms-variants');
+const cmsVariants = document.querySelector('.hidden-cms-variants');
+//cmsVariants.style.display = 'flex';
 
 
 const appData = {
