@@ -35,10 +35,10 @@ const appData = {
 
     init: function() {       
         this.addTitle();
-        startBtn.addEventListener('click', this.start.bind(appData));
+        startBtn.addEventListener('click', this.start.bind(this));
         buttonPlus.addEventListener('click', this.addScreenBlock); 
-        rollbackRange.addEventListener('input', this.getRollback.bind(appData));   
-        resetBtn.addEventListener('click', this.reset.bind(appData));
+        rollbackRange.addEventListener('input', this.getRollback.bind(this));   
+        resetBtn.addEventListener('click', this.reset.bind(this));
     },
 
     addTitle: function () {
@@ -53,8 +53,7 @@ const appData = {
             this.showResult();   
             this.blockInput(true);            
             startBtn.style.display = "none";
-            resetBtn.style.display = "block";  
-            console.log(appData);
+            resetBtn.style.display = "block";            
         } 
         this.clearData();    
                
@@ -70,8 +69,7 @@ const appData = {
         this.addPrices();
         this.showResult(); 
         startBtn.style.display = "block";
-        resetBtn.style.display = "none";
-        console.log(appData);          
+        resetBtn.style.display = "none";            
     },
 
     checkEmptyScreens: function () {       
